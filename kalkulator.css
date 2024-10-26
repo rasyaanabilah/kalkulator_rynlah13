@@ -1,0 +1,80 @@
+body {
+    background: rgb(184, 237, 250);
+    color: white;
+    font-size: 11px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+div {
+    /* border: solid 1px red; */
+}
+
+#kalkulator {
+    border: solid 1px white;
+    padding: 10px;
+    background: linear-gradient(white, white);
+    color: rgb(0, 0, 0);
+    min-width: 200px;
+    border-radius: 10px; /* Membuat sudut tombol sedikit membulat */
+}
+
+.wrapper {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.wrapper div {
+    width: 100%;
+    /* background: black; */
+    padding: 5px 10px;
+}
+
+#hasil, #btn-hitung {
+    font-size: 22px;
+}
+
+#operasi-temporer {
+    font-size: 9px;
+}
+
+.bg-abu { background: #ffd8e5; }
+.bg-red { background: #fc5bc6; }
+.bg-dark-brown { background: #ff8bcb; }
+.bg-brown { background: #fa98e1; }
+.bg-dark-blue { background: #b1f3ff; }
+.bg-purple { background: #d399ff; }
+.bg-green { background: #b2ffd5; }
+.bg-blue { background: #cbb4ff; }
+
+#judul {
+    padding: 10px;
+}
+
+.tombol {
+    border: solid 1px #fcd8ee;
+    box-shadow: 0 0 3px rgb(241, 134, 255), 0 0 5px rgb(190, 231, 255); /* Shadow tambahan */
+    border-radius: 5px; /* Membuat sudut tombol sedikit membulat */
+    padding: 8px 12px; /* Spasi dalam tombol */
+}
+
+.tombol-aktif {
+    cursor: pointer;
+    transition: .2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.tombol-aktif:hover {
+    background: linear-gradient(rgb(255, 172, 218), rgb(255, 124, 200));
+    transform: scale(1.1);
+    box-shadow: 0 0 5px hsl(192, 85%, 68%), 0 0 10px rgb(247, 167, 247); /* Efek glow di hover */
+    border-color: rgb(252, 181, 246); /* Mengubah warna border saat hover */
+}
+
+.tombol-nonaktif {
+    box-shadow: none !important;
+}

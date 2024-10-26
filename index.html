@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalkulator</title>
+    <link rel="stylesheet" href="kalkulator.css" />
+    <script src="jquery.min.js"></script>
+    <script src="kalkulator.js"></script>
+</head>
+<body>
+    <div id="kalkulator">
+        <div id="judul">Kalkulator By Rasyaa Nabilah</div>
+        <div class="wrapper" id="operasi-temporer">
+            <div class="tombol tombol-nonaktif bg-abu" id="input1">...</div>
+            <div class="tombol tombol-nonaktif bg-abu" id="operasi-selected">...</div>
+            <div class="tombol tombol-nonaktif bg-abu" id="input2">...</div>
+            <div class="tombol tombol-nonaktif bg-abu" id="hasil-temporer">...</div>
+        </div>
+        <div class="wrapper">
+            <div id="hasil" class="tombol tombol-nonaktif bg-abu">Hasil</div>
+        </div>
+        <div id="blok-tombol">
+            <div class="wrapper">
+                <div class="tombol tombol-aktif tombol-clear bg-red">C</div>
+                <div class="tombol tombol-aktif toggle-negatif bg-dark-brown">+-</div>
+                <div class="tombol tombol-aktif tombol-faktorial bg-brown">!</div>
+                <div class="tombol tombol-aktif tombol-operasi bg-brown">^</div>
+            </div>
+            <div class="wrapper">
+                <div class="tombol tombol-aktif tombol-angka bg-dark-blue">7</div>
+                <div class="tombol tombol-aktif tombol-angka bg-dark-blue">8</div>
+                <div class="tombol tombol-aktif tombol-angka bg-dark-blue">9</div>
+                <div class="tombol tombol-aktif tombol-operasi bg-brown">%</div>
+            </div>
+            <div class="wrapper">
+                <div class="tombol tombol-aktif tombol-angka bg-dark-blue">4</div>
+                <div class="tombol tombol-aktif tombol-angka bg-dark-blue">5</div>
+                <div class="tombol tombol-aktif tombol-angka bg-dark-blue">6</div>
+                <div class="tombol tombol-aktif tombol-operasi bg-purple">/</div>
+            </div>
+            <div class="wrapper">
+                <div class="tombol tombol-aktif tombol-angka bg-dark-blue">1</div>
+                <div class="tombol tombol-aktif tombol-angka bg-dark-blue">2</div>
+                <div class="tombol tombol-aktif tombol-angka bg-dark-blue">3</div>
+                <div class="tombol tombol-aktif tombol-operasi bg-purple">x</div>
+            </div>
+            <div class="wrapper">
+                <div class="tombol tombol-aktif tombol-angka bg-dark-blue">0</div>
+                <div class="tombol tombol-aktif bg-dark-brown decimal">.</div> <!-- Added class "decimal" -->
+                <div class="tombol tombol-aktif tombol-operasi bg-purple">+</div>
+                <div class="tombol tombol-aktif tombol-operasi bg-purple">-</div>
+            </div>
+            <div class="wrapper">
+                <div id="btn-hitung" class="tombol tombol-aktif bg-green">=</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
