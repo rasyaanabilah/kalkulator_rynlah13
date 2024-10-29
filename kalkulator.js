@@ -5,17 +5,13 @@ $(function () {
 
     $(".tombol-angka").click(function () {
         let angka = $(this).text();
-        // alert("Hallo jQuery! Kamu menekan angka " + angka);
         
-        // cek jika sudah ada selected operasi
         if (operasiSelected == null) {
-            // operasi masih kosong, isi input1
             let angkaSebelumnya = $("#input1").text();
             if (angkaSebelumnya == "...") angkaSebelumnya = "";
             input1 = angkaSebelumnya + angka;
             $("#input1").text(input1);
         } else {
-            // sudah ada operasi selected
             let angkaSebelumnya = $("#input2").text();
             if (angkaSebelumnya == "...") angkaSebelumnya = "";
             input2 = angkaSebelumnya + angka;
@@ -26,6 +22,11 @@ $(function () {
     $(".tombol-operasi").click(function () {
         let operasiSebelumnya = $("#operasi-selected").text();
         let newOperasi = $(this).text();
+        
+        if (newOperasi == "%" && operasiSebelumnya == "%") {
+            return;
+        }
+        
         if (operasiSebelumnya == "...") {
             operasiSelected = newOperasi;
             $("#operasi-selected").text(operasiSelected);
@@ -33,13 +34,16 @@ $(function () {
     });
 
     $(".tombol-clear").click(function () {
+        // Reset semua input, operasi, dan hasil
         input1 = "";
         input2 = "";
         operasiSelected = null;
+        
         $("#input1").text("...");
         $("#input2").text("...");
         $("#operasi-selected").text("...");
-        $("#hasil").text("hasil");
+        $("#hasil").text("Hasil");  // Reset hasil pada tombol Hasil
+        $("#hasil-temporer").text("=");  // Reset simbol "=" pada hasil-temporer
     });
 
     $("#btn-hitung").click(function () {
@@ -47,7 +51,7 @@ $(function () {
             let hasil;
             input1 = parseFloat(input1);
             input2 = parseFloat(input2);
-
+    
             switch (operasiSelected) {
                 case "+":
                     hasil = input1 + input2;
@@ -68,20 +72,21 @@ $(function () {
                     hasil = input1 % input2;
                     break;
             }
-
-            $("#hasil").text(hasil);
+    
+            $("#hasil").text(hasil);  // Tampilkan hasil di #hasil
             
-            // Reset untuk kalkulasi berikutnya
-            input1 = hasil;
+            // Tetap tampilkan input dan operasi yang dipilih
             $("#input1").text(input1);
+            $("#input2").text(input2);
+            $("#operasi-selected").text(operasiSelected);
+            
+            // Siapkan untuk kalkulasi berikutnya, tetapi simpan tampilan saat ini
+            input1 = hasil;
             input2 = "";
-            $("#input2").text("...");
             operasiSelected = null;
-            $("#operasi-selected").text("...");
         }
     });
 
-    // Toggle negatif/positif
     $(".toggle-negatif").click(function () {
         if (operasiSelected == null && input1) {
             input1 = -parseFloat(input1);
@@ -92,7 +97,6 @@ $(function () {
         }
     });
 
-    // Faktorial
     $(".tombol-faktorial").click(function () {
         if (operasiSelected == null && input1) {
             let num = parseInt(input1);
@@ -101,13 +105,14 @@ $(function () {
                 for (let i = 2; i <= num; i++) {
                     hasil *= i;
                 }
-                input1 = hasil;
-                $("#input1").text(hasil);
+                $("#hasil").text(hasil);  // Tampilkan hasil faktorial di #hasil
+                
+                // Tetap tampilkan input asli
+                $("#input1").text(num);
             }
         }
     });
 
-    // Decimal point
     $(".decimal").click(function () {
         if (operasiSelected == null) {
             if (input1 && !input1.includes('.')) {
