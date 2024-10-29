@@ -42,8 +42,8 @@ $(function () {
         $("#input1").text("...");
         $("#input2").text("...");
         $("#operasi-selected").text("...");
-        $("#hasil").text("0");  // Reset hasil pada tombol Hasil
-        $("#hasil-temporer").text("=");  // Reset simbol "=" pada hasil-temporer
+        $("#hasil").text("Hasil");  
+        $("#hasil-temporer").text("...");  // Tambahan: Reset simbol di kotak keempat
     });
 
     $("#btn-hitung").click(function () {
@@ -73,14 +73,15 @@ $(function () {
                     break;
             }
     
-            $("#hasil").text(hasil);  // Tampilkan hasil di #hasil
+            $("#hasil").text(hasil);  // Tampilkan hasil di area hasil
+            $("#hasil-temporer").text("=");  // Tambahan: Menampilkan simbol "=" di kotak keempat
             
             // Tetap tampilkan input dan operasi yang dipilih
             $("#input1").text(input1);
             $("#input2").text(input2);
             $("#operasi-selected").text(operasiSelected);
             
-            // Siapkan untuk kalkulasi berikutnya, tetapi simpan tampilan saat ini
+            // Siapkan untuk kalkulasi berikutnya
             input1 = hasil;
             input2 = "";
             operasiSelected = null;
@@ -105,7 +106,8 @@ $(function () {
                 for (let i = 2; i <= num; i++) {
                     hasil *= i;
                 }
-                $("#hasil").text(hasil);  // Tampilkan hasil faktorial di #hasil
+                $("#hasil").text(hasil);  // Tampilkan hasil faktorial di area hasil
+                $("#hasil-temporer").text("=");  // Tambahan: Menampilkan simbol "=" di kotak keempat
                 
                 // Tetap tampilkan input asli
                 $("#input1").text(num);
