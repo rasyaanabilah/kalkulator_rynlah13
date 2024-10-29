@@ -42,7 +42,7 @@ $(function () {
         $("#input1").text("...");
         $("#input2").text("...");
         $("#operasi-selected").text("...");
-        $("#hasil").text("Hasil");  // Reset hasil pada tombol Hasil
+        $("#hasil").text("0");  // Reset hasil pada tombol Hasil
         $("#hasil-temporer").text("=");  // Reset simbol "=" pada hasil-temporer
     });
 
